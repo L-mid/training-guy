@@ -30,6 +30,10 @@
         {
           "label": "YouTube: Install + run your first Python program (Corey Schafer)",
           "url": "https://www.youtube.com/watch?v=YYXdXT2l-Gg"
+        },
+        {
+          "label": "python hello world in vscode",
+          "url": "https://www.youtube.com/watch?v=FzxmUdrMgOk"
         }
       ]
     },
@@ -46,7 +50,38 @@
           "label": "YouTube: Variables & Data Types (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=OFrLs22MDAw"
         }
-      ]
+      ],
+
+      "example_run": [
+        "```text",
+        "$ python variables.py",
+        "My name is Alex and I am 12 years old.",
+        "Now my name is Alex and I am 13 years old.",
+        "```"
+      ],
+
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show example code",
+        "language": "python",
+        "filename": "variables.py",
+        "text": [
+          "This is one simple example using f-strings."
+        ],
+        "code": [
+          "name = 'Alex'",
+          "age = 12",
+          "",
+          "print(f'My name is {name} and I am {age} years old.')",
+          "",
+          "age = age + 1",
+          "print(f'Now my name is {name} and I am {age} years old.')",
+          "",
+          "# Optional:",
+          "# favorite_game = 'Minecraft'",
+          "# print(f'My favorite game is {favorite_game}.')"
+        ]
+      }
     },
     "ins-and-outs-input-output": {
       "task": [
@@ -177,7 +212,7 @@
         "```"
       ],
       "solution_block": {
-        "enabled": false,
+        "enabled": true,
         "summary": "Show one possible solution",
         "language": "python",
         "filename": "fizzbuzz.py",
