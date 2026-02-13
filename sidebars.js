@@ -3,6 +3,8 @@
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 export default {
   curriculumSidebar: [
+    'curriculum/index', // <-- this is your main tiers page
+
     {
       type: 'category',
       label: 'TIER 1 — NOOB',
@@ -16,6 +18,8 @@ export default {
     },
   ],
 };
+
+
 // when ready to unlock another tier:
 // {
 //  type: 'category',

@@ -72,7 +72,7 @@ def generate(*, repo_root: Path) -> Path:
         if isinstance(max_public_tier, int) and t.n > max_public_tier:
             continue
         tier_folder = f"tier-{t.n:02d}-{slugify(t.name)}"
-        landing.append(f"- **TIER {t.n} — {t.name}** → ./{tier_folder}/\n")
+        landing.append(f"- [TIER {t.n} — {t.name}](/curriculum/{tier_folder})\n")
     write_file(docs_root / "index.mdx", "".join(landing) + "\n")
 
     # Tiers + days
