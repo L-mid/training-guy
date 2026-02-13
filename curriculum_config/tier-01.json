@@ -24,7 +24,8 @@
         "Create a new file named hello.py.",
         "Write a program that prints: Hello, world! (exactly)",
         "Run it from the terminal: python hello.py",
-        "(Optional) Print 3 different lines."
+        "(Optional) Print 3 different lines.",
+        "(Optional) Print a tiny 'spell' banner (ASCII art)."
       ],
       "docs_links_append": [
         {
@@ -35,15 +36,52 @@
           "label": "python hello world in vscode",
           "url": "https://www.youtube.com/watch?v=FzxmUdrMgOk"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python hello.py",
+        "Hello, world!",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (hello.py)",
+        "language": "python",
+        "filename": "hello.py",
+        "text": [
+          "Keep it tiny. This is the 'first spell' of Python."
+        ],
+        "code": [
+          "\"\"\"hello.py",
+          "",
+          "Your first Python spell 🪄",
+          "",
+          "Goal:",
+          "- Print EXACTLY: Hello, world!",
+          "- (Optional) Print a few extra lines.",
+          "\"\"\"",
+          "",
+          "# The print(...) function writes text to the screen (stdout).",
+          "print(\"Hello, world!\")",
+          "",
+          "# Optional: extra lines (uncomment if you want).",
+          "# print(\"I have awakened.\")",
+          "# print(\"Behold... my keyboard powers.\")",
+          "",
+          "# Optional alt approach: one print call can contain newlines using \\n",
+          "# print(\"Line 1\\nLine 2\\nLine 3\")"
+        ]
+      }
     },
+
     "variable-storage-store-plus-show": {
       "task": [
         "Create a file named variables.py.",
         "Make 2 variables (for example: name and age).",
         "Print both values in one sentence.",
         "Change one variable and print again.",
-        "(Optional) Add a third variable (favorite_food, favorite_game, etc.)."
+        "(Optional) Add a third variable (favorite_food, favorite_game, etc.).",
+        "(Optional) Try BOTH string building styles: f-strings and + concatenation."
       ],
       "docs_links_append": [
         {
@@ -51,128 +89,441 @@
           "url": "https://www.youtube.com/watch?v=OFrLs22MDAw"
         }
       ],
-
       "example_run": [
         "```text",
         "$ python variables.py",
         "My name is Alex and I am 12 years old.",
         "Now my name is Alex and I am 13 years old.",
+        "Bonus: My favorite game is Minecraft.",
         "```"
       ],
-
       "solution_block": {
         "enabled": true,
-        "summary": "Show example code",
+        "summary": "Show spoiler code (variables.py)",
         "language": "python",
         "filename": "variables.py",
         "text": [
-          "This is one simple example using f-strings."
+          "This example uses f-strings (the nicest beginner way).",
+          "It also shows a second approach in comments."
         ],
         "code": [
-          "name = 'Alex'",
+          "\"\"\"variables.py",
+          "",
+          "Variables = labeled boxes you can put values inside.",
+          "You can change what's in the box later.",
+          "\"\"\"",
+          "",
+          "# A string (text)",
+          "name = \"Alex\"",
+          "",
+          "# An integer (whole number)",
           "age = 12",
           "",
-          "print(f'My name is {name} and I am {age} years old.')",
+          "# f-strings let you drop variables right into text with {like_this}.",
+          "print(f\"My name is {name} and I am {age} years old.\")",
           "",
-          "age = age + 1",
-          "print(f'Now my name is {name} and I am {age} years old.')",
+          "# Let's change the value in the age box.",
+          "age = age + 1  # you can also write: age += 1",
+          "print(f\"Now my name is {name} and I am {age} years old.\")",
           "",
-          "# Optional:",
-          "# favorite_game = 'Minecraft'",
-          "# print(f'My favorite game is {favorite_game}.')"
+          "# Optional: third variable (pick anything fun)",
+          "favorite_game = \"Minecraft\"",
+          "print(f\"Bonus: My favorite game is {favorite_game}.\")",
+          "",
+          "# --- Alt approach (commented): concatenation with + ---",
+          "# print(\"My name is \" + name + \" and I am \" + str(age) + \" years old.\")",
+          "# ^ Notice we needed str(age) because age is a number, not text."
         ]
       }
     },
+
     "ins-and-outs-input-output": {
       "task": [
         "Create a file named echo.py.",
         "Ask the user for their name using input(...).",
         "Print a greeting using the user's input.",
         "Ask for a second value (favorite color / game / animal) and echo it back.",
-        "(Optional) Format the output nicely (newlines, punctuation)."
+        "(Optional) Format the output nicely (newlines, punctuation).",
+        "(Optional) Use .strip() to clean extra spaces."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: Basic Operators & Input (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=QQrcd_62VWM"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python echo.py",
+        "What is your name?  alex",
+        "Hello, Alex!",
+        "Pick a favorite creature:  dragon",
+        "Nice. If I see a dragon, I'll tell it you said hi.",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (echo.py)",
+        "language": "python",
+        "filename": "echo.py",
+        "text": [
+          "Use input(...) to read a string. Use .strip() to remove weird spaces.",
+          "This one also makes the name look nicer."
+        ],
+        "code": [
+          "\"\"\"echo.py",
+          "",
+          "Input -> output (a.k.a. 'I say something, you say something')",
+          "\"\"\"",
+          "",
+          "# input(prompt) prints the prompt and returns what the user typed (as a STRING).",
+          "raw_name = input(\"What is your name? \")",
+          "",
+          "# Clean up: remove leading/trailing spaces, and make it look nice.",
+          "name = raw_name.strip().title()  # title() capitalizes words",
+          "",
+          "print(f\"Hello, {name}!\")",
+          "",
+          "creature = input(\"Pick a favorite creature: \").strip().lower()",
+          "",
+          "# A little fun line. This is still just printing text.",
+          "print(f\"Nice. If I see a {creature}, I'll tell it you said hi.\")",
+          "",
+          "# Alt idea (commented): multi-line output in one print",
+          "# print(f\"Hello, {name}!\\nYour creature is: {creature}\\nLegendary choice.\")"
+        ]
+      }
     },
+
     "number-parser-str-int-float": {
       "task": [
         "Create a file named parse_numbers.py.",
         "Read one whole number (int) from input and print it + 1.",
         "Read one decimal number (float) and print it * 2.",
         "Print the type(...) of both parsed values.",
-        "(Optional) Handle bad input by printing a friendly message."
+        "(Optional) Handle bad input by printing a friendly message.",
+        "(Optional) Accept blanks by using defaults (like 0 or 1.0)."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: Integers & Floats (Corey Schafer)",
           "url": "https://www.youtube.com/watch?v=khKv-8q7YmY"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python parse_numbers.py",
+        "Enter a whole number:  41",
+        "n + 1 = 42",
+        "type(n) = <class 'int'>",
+        "Enter a decimal number:  2.5",
+        "x * 2 = 5.0",
+        "type(x) = <class 'float'>",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (parse_numbers.py)",
+        "language": "python",
+        "filename": "parse_numbers.py",
+        "text": [
+          "Key idea: input() gives you a string. int(...) and float(...) convert it.",
+          "Try/except lets you handle bad input without crashing."
+        ],
+        "code": [
+          "\"\"\"parse_numbers.py",
+          "",
+          "Parsing numbers from input (strings -> int/float).",
+          "If parsing fails, we print a friendly message instead of exploding.",
+          "\"\"\"",
+          "",
+          "s_int = input(\"Enter a whole number: \").strip()",
+          "",
+          "try:",
+          "    n = int(s_int)  # convert string -> int",
+          "except ValueError:",
+          "    print(\"That wasn't a whole number. Example: 41\")",
+          "else:",
+          "    print(f\"n + 1 = {n + 1}\")",
+          "    print(f\"type(n) = {type(n)}\")",
+          "",
+          "print()  # blank line for readability",
+          "",
+          "s_float = input(\"Enter a decimal number: \").strip()",
+          "",
+          "try:",
+          "    x = float(s_float)  # convert string -> float",
+          "except ValueError:",
+          "    print(\"That wasn't a decimal number. Example: 2.5\")",
+          "else:",
+          "    print(f\"x * 2 = {x * 2}\")",
+          "    print(f\"type(x) = {type(x)}\")",
+          "",
+          "# Alt idea (commented): defaults for empty input",
+          "# s = input(\"Enter a whole number (default 0): \").strip()",
+          "# n = int(s) if s else 0"
+        ]
+      }
     },
+
     "calculator-plus": {
       "task": [
         "Create a file named calculator.py.",
         "Read two numbers (use float) from input.",
         "Print the results of: +, -, *, /.",
         "If the second number is 0, don’t crash on division (print a message).",
-        "(Optional) Ask for the operator (+ - * /) and only do that one."
+        "(Optional) Ask for the operator (+ - * /) and only do that one.",
+        "(Optional) Round results to 2 decimals."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: Basic Operators & Input (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=QQrcd_62VWM"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python calculator.py",
+        "a: 10",
+        "b: 4",
+        "a + b = 14.0",
+        "a - b = 6.0",
+        "a * b = 40.0",
+        "a / b = 2.5",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (calculator.py)",
+        "language": "python",
+        "filename": "calculator.py",
+        "text": [
+          "This prints all four operations, with a safe divide-by-zero check.",
+          "An optional single-op mode is included in comments."
+        ],
+        "code": [
+          "\"\"\"calculator.py",
+          "",
+          "A tiny calculator. We'll be polite about division by zero.",
+          "\"\"\"",
+          "",
+          "def read_number(prompt: str) -> float:",
+          "    \"\"\"Read a float from input, retrying until valid.\"\"\"",
+          "    while True:",
+          "        s = input(prompt).strip()",
+          "        try:",
+          "            return float(s)",
+          "        except ValueError:",
+          "            print(\"Please enter a number like 3 or 2.5\")",
+          "",
+          "",
+          "a = read_number(\"a: \")",
+          "b = read_number(\"b: \")",
+          "",
+          "print(f\"a + b = {a + b}\")",
+          "print(f\"a - b = {a - b}\")",
+          "print(f\"a * b = {a * b}\")",
+          "",
+          "if b == 0:",
+          "    print(\"a / b = (nope) division by zero is illegal in this kingdom\")",
+          "else:",
+          "    print(f\"a / b = {a / b}\")",
+          "",
+          "# --- Optional single-operator mode (commented) ---",
+          "# op = input(\"Choose op (+ - * /): \").strip()",
+          "# if op == \"+\": print(a + b)",
+          "# elif op == \"-\": print(a - b)",
+          "# elif op == \"*\": print(a * b)",
+          "# elif op == \"/\":",
+          "#     print(\"nope\" if b == 0 else a / b)",
+          "# else:",
+          "#     print(\"Unknown operator\")"
+        ]
+      }
     },
+
     "if-gate-i-even-odd": {
       "task": [
         "Create a file named even_odd.py.",
         "Read an integer n.",
         "If n is even, print: even. Otherwise print: odd.",
         "Test with: 0, 1, 2, -3.",
-        "(Optional) Also print whether n is positive/negative/zero."
+        "(Optional) Also print whether n is positive/negative/zero.",
+        "(Optional) Put the even/odd logic in a function."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: IF / ELIF / ELSE (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=vA4r_MPRNsg"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python even_odd.py",
+        "n: -3",
+        "odd",
+        "negative",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (even_odd.py)",
+        "language": "python",
+        "filename": "even_odd.py",
+        "text": [
+          "Use n % 2 to check even/odd. Then a second if for sign."
+        ],
+        "code": [
+          "\"\"\"even_odd.py",
+          "",
+          "If-gate challenge: decide which message to print.",
+          "\"\"\"",
+          "",
+          "def even_or_odd(n: int) -> str:",
+          "    \"\"\"Return 'even' or 'odd' based on parity.\"\"\"",
+          "    # % is 'mod' (remainder). Even numbers have remainder 0 when divided by 2.",
+          "    return \"even\" if (n % 2 == 0) else \"odd\"",
+          "",
+          "",
+          "s = input(\"n: \").strip()",
+          "n = int(s)  # assume valid int for now (you can add try/except as an upgrade)",
+          "",
+          "print(even_or_odd(n))",
+          "",
+          "# Optional: sign check",
+          "if n > 0:",
+          "    print(\"positive\")",
+          "elif n < 0:",
+          "    print(\"negative\")",
+          "else:",
+          "    print(\"zero\")",
+          "",
+          "# Alt parity approach (commented):",
+          "# if n % 2 == 0: print(\"even\")",
+          "# else: print(\"odd\")"
+        ]
+      }
     },
+
     "compare-trio-max-of-3": {
       "task": [
         "Create a file named max3.py.",
         "Read three integers a, b, c.",
         "Print the largest value.",
         "Test with a tie case (like 5, 5, 1).",
-        "(Optional) Print the smallest value too."
+        "(Optional) Print the smallest value too.",
+        "(Optional) Print BOTH using built-ins: max(...) and min(...)."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: IF / ELIF / ELSE (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=vA4r_MPRNsg"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python max3.py",
+        "a: 5",
+        "b: 5",
+        "c: 1",
+        "largest = 5",
+        "smallest = 1",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (max3.py)",
+        "language": "python",
+        "filename": "max3.py",
+        "text": [
+          "Two ways are shown: built-ins (easy) and manual comparisons (commented)."
+        ],
+        "code": [
+          "\"\"\"max3.py",
+          "",
+          "Find the largest of three numbers (and optionally the smallest).",
+          "\"\"\"",
+          "",
+          "a = int(input(\"a: \").strip())",
+          "b = int(input(\"b: \").strip())",
+          "c = int(input(\"c: \").strip())",
+          "",
+          "# Easiest: use built-in max/min",
+          "largest = max(a, b, c)",
+          "smallest = min(a, b, c)",
+          "",
+          "print(f\"largest = {largest}\")",
+          "print(f\"smallest = {smallest}\")",
+          "",
+          "# --- Alt approach (commented): manual comparisons ---",
+          "# largest = a",
+          "# if b > largest: largest = b",
+          "# if c > largest: largest = c",
+          "# print(largest)"
+        ]
+      }
     },
+
     "loop-drill-i-count-1-n": {
       "task": [
         "Create a file named count_to_n.py.",
         "Read an integer N.",
         "Print the numbers 1..N (one per line).",
         "If `N <= 0`, print a message instead of looping.",
-        "(Optional) Also print N..1 (countdown)."
+        "(Optional) Also print N..1 (countdown).",
+        "(Optional) Print the sum of 1..N at the end."
       ],
       "docs_links_append": [
         {
           "label": "YouTube: For Loops (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=vKeoXxVaga4"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python count_to_n.py",
+        "N: 5",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "sum = 15",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (count_to_n.py)",
+        "language": "python",
+        "filename": "count_to_n.py",
+        "text": [
+          "Basic loop practice. Also shows how to accumulate a sum."
+        ],
+        "code": [
+          "\"\"\"count_to_n.py",
+          "",
+          "Loop drill: count up to N (and maybe back down).",
+          "\"\"\"",
+          "",
+          "N = int(input(\"N: \").strip())",
+          "",
+          "if N <= 0:",
+          "    print(\"N must be positive to count. (Try 1, 2, 5, ...)\" )",
+          "else:",
+          "    total = 0",
+          "    for i in range(1, N + 1):",
+          "        print(i)",
+          "        total += i  # add i into the running total",
+          "",
+          "    print(f\"sum = {total}\")",
+          "",
+          "    # Optional countdown (commented):",
+          "    # for i in range(N, 0, -1):",
+          "    #     print(i)"
+        ]
+      }
     },
+
     "fizzbuzz-i": {
       "task": [
         "Create a file named fizzbuzz.py.",
@@ -181,7 +532,8 @@
         "- Print Buzz if divisible by 5",
         "- Print FizzBuzz if divisible by both",
         "- Otherwise print the number",
-        "(Optional) Let the user choose N; default to 100."
+        "(Optional) Let the user choose N; default to 100.",
+        "(Optional) Add a 'mode' where the words are different (like Zap/Zoop)."
       ],
       "docs_links_append": [
         {
@@ -213,28 +565,47 @@
       ],
       "solution_block": {
         "enabled": true,
-        "summary": "Show one possible solution",
+        "summary": "Show spoiler code (fizzbuzz.py)",
         "language": "python",
         "filename": "fizzbuzz.py",
         "text": [
-          "Keep it simple. This is one valid way; many others are fine."
+          "This version is extra-commented and includes an alt approach in comments."
         ],
         "code": [
-          "s = input('N (default 100): ').strip()",
+          "\"\"\"fizzbuzz.py",
+          "",
+          "FizzBuzz: a classic loop + if logic puzzle.",
+          "",
+          "Rules:",
+          "- divisible by 3 -> Fizz",
+          "- divisible by 5 -> Buzz",
+          "- divisible by 15 -> FizzBuzz",
+          "\"\"\"",
+          "",
+          "s = input(\"N (default 100): \").strip()",
           "n = int(s) if s else 100",
           "",
           "for i in range(1, n + 1):",
+          "    # Check 'both' first so 15 doesn't get caught by 3 or 5 early.",
           "    if i % 15 == 0:",
-          "        print('FizzBuzz')",
+          "        print(\"FizzBuzz\")",
           "    elif i % 3 == 0:",
-          "        print('Fizz')",
+          "        print(\"Fizz\")",
           "    elif i % 5 == 0:",
-          "        print('Buzz')",
+          "        print(\"Buzz\")",
           "    else:",
-          "        print(i)"
+          "        print(i)",
+          "",
+          "# --- Alt approach (commented): build a word, then print word or number ---",
+          "# for i in range(1, n + 1):",
+          "#     word = \"\"",
+          "#     if i % 3 == 0: word += \"Fizz\"",
+          "#     if i % 5 == 0: word += \"Buzz\"",
+          "#     print(word if word else i)"
         ]
       }
     },
+
     "boss-guess-the-number-i": {
       "task": [
         "Create a file named guess.py.",
@@ -242,7 +613,8 @@
         "Loop: ask for a guess until they get it right.",
         "After each guess, print: too high / too low.",
         "When correct, print how many guesses it took.",
-        "(Optional) Add an attempt limit (like 10 tries)."
+        "(Optional) Add an attempt limit (like 10 tries).",
+        "(Optional) Add input validation (no crashing on bad input)."
       ],
       "hints_block": {
         "enabled": true
@@ -257,7 +629,86 @@
           "label": "YouTube: While Loops (Tech With Tim)",
           "url": "https://www.youtube.com/watch?v=U_nugSKtbSk"
         }
-      ]
+      ],
+      "example_run": [
+        "```text",
+        "$ python guess.py",
+        "I'm thinking of a number 1..100.",
+        "Guess: 50",
+        "Too high!",
+        "Guess: 25",
+        "Too low!",
+        "Guess: 32",
+        "Correct! You got it in 3 guesses.",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": true,
+        "summary": "Show spoiler code (guess.py)",
+        "language": "python",
+        "filename": "guess.py",
+        "text": [
+          "Boss mode: includes validation + optional attempt limit + fun flavor text.",
+          "Also shows a simpler version in comments."
+        ],
+        "code": [
+          "\"\"\"guess.py",
+          "",
+          "Boss: Guess the Number 🎯",
+          "",
+          "We pick a secret number. The player keeps guessing until they get it.",
+          "After each guess we give a hint: too high / too low.",
+          "\"\"\"",
+          "",
+          "import random",
+          "",
+          "secret = random.randint(1, 100)",
+          "guesses = 0",
+          "max_attempts = 10  # Optional: change or set to None for unlimited",
+          "",
+          "print(\"I'm thinking of a number 1..100.\")",
+          "",
+          "while True:",
+          "    if max_attempts is not None and guesses >= max_attempts:",
+          "        print(f\"Out of attempts! The secret was {secret}.\")",
+          "        break",
+          "",
+          "    s = input(\"Guess: \").strip()",
+          "",
+          "    # Validation: don't crash if they type 'cat' 😼",
+          "    try:",
+          "        guess = int(s)",
+          "    except ValueError:",
+          "        print(\"Please type a whole number like 42.\")",
+          "        continue",
+          "",
+          "    if guess < 1 or guess > 100:",
+          "        print(\"Stay in range 1..100, wizard.\")",
+          "        continue",
+          "",
+          "    guesses += 1",
+          "",
+          "    if guess < secret:",
+          "        print(\"Too low!\")",
+          "    elif guess > secret:",
+          "        print(\"Too high!\")",
+          "    else:",
+          "        print(f\"Correct! You got it in {guesses} guesses.\")",
+          "        break",
+          "",
+          "# --- Simpler version (commented): no validation, no attempt limit ---",
+          "# secret = random.randint(1, 100)",
+          "# guesses = 0",
+          "# while True:",
+          "#     guess = int(input('Guess: '))",
+          "#     guesses += 1",
+          "#     if guess < secret: print('Too low')",
+          "#     elif guess > secret: print('Too high')",
+          "#     else:",
+          "#         print(f'Correct in {guesses}!')",
+          "#         break"
+        ]
+      }
     }
   }
 }

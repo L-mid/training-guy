@@ -13,6 +13,7 @@ sidebar_position: 9
 - - Print FizzBuzz if divisible by both
 - - Otherwise print the number
 - (Optional) Let the user choose N; default to 100.
+- (Optional) Add a 'mode' where the words are different (like Zap/Zoop).
 
 ## Docs / Tutorials
 
@@ -47,23 +48,41 @@ FizzBuzz
 ## Solution (spoiler)
 
 <details>
-  <summary>Show one possible solution</summary>
+  <summary>Show spoiler code (fizzbuzz.py)</summary>
 
-Keep it simple. This is one valid way; many others are fine.
+This version is extra-commented and includes an alt approach in comments.
 
 ```python title="fizzbuzz.py"
-s = input('N (default 100): ').strip()
+"""fizzbuzz.py
+
+FizzBuzz: a classic loop + if logic puzzle.
+
+Rules:
+- divisible by 3 -> Fizz
+- divisible by 5 -> Buzz
+- divisible by 15 -> FizzBuzz
+"""
+
+s = input("N (default 100): ").strip()
 n = int(s) if s else 100
 
 for i in range(1, n + 1):
+    # Check 'both' first so 15 doesn't get caught by 3 or 5 early.
     if i % 15 == 0:
-        print('FizzBuzz')
+        print("FizzBuzz")
     elif i % 3 == 0:
-        print('Fizz')
+        print("Fizz")
     elif i % 5 == 0:
-        print('Buzz')
+        print("Buzz")
     else:
         print(i)
+
+# --- Alt approach (commented): build a word, then print word or number ---
+# for i in range(1, n + 1):
+#     word = ""
+#     if i % 3 == 0: word += "Fizz"
+#     if i % 5 == 0: word += "Buzz"
+#     print(word if word else i)
 ```
 
 </details>

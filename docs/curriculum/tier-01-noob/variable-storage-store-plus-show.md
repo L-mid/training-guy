@@ -11,6 +11,7 @@ sidebar_position: 2
 - Print both values in one sentence.
 - Change one variable and print again.
 - (Optional) Add a third variable (favorite_food, favorite_game, etc.).
+- (Optional) Try BOTH string building styles: f-strings and + concatenation.
 
 ## Docs / Tutorials
 
@@ -25,27 +26,44 @@ sidebar_position: 2
 $ python variables.py
 My name is Alex and I am 12 years old.
 Now my name is Alex and I am 13 years old.
+Bonus: My favorite game is Minecraft.
 ```
 
 ## Solution (spoiler)
 
 <details>
-  <summary>Show example code</summary>
+  <summary>Show spoiler code (variables.py)</summary>
 
-This is one simple example using f-strings.
+This example uses f-strings (the nicest beginner way).
+It also shows a second approach in comments.
 
 ```python title="variables.py"
-name = 'Alex'
+"""variables.py
+
+Variables = labeled boxes you can put values inside.
+You can change what's in the box later.
+"""
+
+# A string (text)
+name = "Alex"
+
+# An integer (whole number)
 age = 12
 
-print(f'My name is {name} and I am {age} years old.')
+# f-strings let you drop variables right into text with {like_this}.
+print(f"My name is {name} and I am {age} years old.")
 
-age = age + 1
-print(f'Now my name is {name} and I am {age} years old.')
+# Let's change the value in the age box.
+age = age + 1  # you can also write: age += 1
+print(f"Now my name is {name} and I am {age} years old.")
 
-# Optional:
-# favorite_game = 'Minecraft'
-# print(f'My favorite game is {favorite_game}.')
+# Optional: third variable (pick anything fun)
+favorite_game = "Minecraft"
+print(f"Bonus: My favorite game is {favorite_game}.")
+
+# --- Alt approach (commented): concatenation with + ---
+# print("My name is " + name + " and I am " + str(age) + " years old.")
+# ^ Notice we needed str(age) because age is a number, not text.
 ```
 
 </details>
