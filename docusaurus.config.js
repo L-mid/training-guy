@@ -63,9 +63,16 @@ const config = {
   themeConfig: ({
     // ...
     navbar: {
-      // keep your navbar
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'curriculumSidebar',
+          position: 'left',
+          label: 'Curriculum',
+        },
+        // (optional) remove the old Tutorial item if it’s still there
+      ],
     },
-
     footer: {
       style: 'dark',
       links: [
