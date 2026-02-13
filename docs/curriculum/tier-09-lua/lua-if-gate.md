@@ -12,7 +12,15 @@ sidebar_position: 3
 
 
 
+
+
+
+
+
+
 ## Checklist
+
+
 
 
 
@@ -23,6 +31,8 @@ sidebar_position: 3
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 

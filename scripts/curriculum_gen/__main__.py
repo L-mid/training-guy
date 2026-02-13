@@ -14,7 +14,7 @@ def main() -> None:
         docs/
         curriculum_config/
     """
-    repo_root = Path(__file__).resolve().parents[1]
+    repo_root = Path(__file__).resolve().parents[2]
     out = generate(repo_root=repo_root)
     print(f"Generated curriculum at: {out}")
 
