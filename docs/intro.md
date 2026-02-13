@@ -5,12 +5,12 @@ slug: /
 
 # Training (get stronger 🦾)
 
-- Go to the curriculum: **/curriculum/**
+- Go to the curriculum: [/curriculum/](/curriculum/)
 
-! 💚 Easy !
-! 💛 Medium !
-! ❤️‍🔥 Hard !
-! 💜 Boss !
+- ! 💚 Easy !
+- ! 💛 Medium !
+- ! ❤️‍🔥 Hard !
+- ! 💜 Boss !
 
 
 Unlock the next tier by completing all the units!
