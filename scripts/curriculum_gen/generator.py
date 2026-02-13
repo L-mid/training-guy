@@ -1,0 +1,155 @@
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from .config import load_global_defaults, load_tier_config, merge_section
+from .links import links_for_tier
+from .markdown import (
+    normalize_newlines,
+    remove_section,
+    render_bullets,
+    render_checklist,
+    render_docs_links,
+    replace_or_append_section,
+    section_body_from_lines,
+    upsert_frontmatter,
+)
+from .parsing import parse_curriculum, slugify
+from .raw_curriculum import RAW
+
+
+def write_file(path: Path, text: str) -> None:
+    """Atomic-enough for docs generation: ensure parent exists then write UTF-8."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8")
+
+
+def generate(*, repo_root: Path) -> Path:
+    """
+    Generate/refresh curriculum docs under {repo_root}/docs/curriculum.
+
+    Integration contract (filesystem):
+      - reads RAW (baked-in)
+      - reads config from {repo_root}/curriculum_config/
+          - global.json (optional)
+          - tier-XX.json (optional)
+      - writes docs to {repo_root}/docs/curriculum/
+
+    Returns:
+        Path to the docs_root folder.
+    """
+    docs_root = repo_root / "docs" / "curriculum"
+    config_root = repo_root / "curriculum_config"
+
+    tiers = parse_curriculum(RAW)
+    global_defaults = load_global_defaults(config_root)
+
+    # Root category + landing page
+    write_file(
+        docs_root / "_category_.json",
+        json.dumps(
+            {
+                "label": "Curriculum",
+                "position": 1,
+                "link": {
+                    "type": "generated-index",
+                    "title": "Curriculum",
+                    "description": "Click a tier to start. Each tier page lists the days.",
+                },
+            },
+            indent=2,
+        )
+        + "\n",
+    )
+
+    landing = ["# Curriculum\n", "\n## Tiers\n"]
+    for t in tiers:
+        tier_folder = f"tier-{t.n:02d}-{slugify(t.name)}"
+        landing.append(f"- **TIER {t.n} — {t.name}** → ./{tier_folder}/\n")
+    write_file(docs_root / "index.mdx", "".join(landing) + "\n")
+
+    # Tiers + days
+    for t in tiers:
+        tier_cfg = load_tier_config(config_root, t.n)
+        tier_defaults: dict[str, Any] = tier_cfg["tier_defaults"]
+        file_overrides: dict[str, Any] = tier_cfg["files"]
+
+        tier_folder = docs_root / f"tier-{t.n:02d}-{slugify(t.name)}"
+
+        expected_slugs = {slugify(d.title) for d in t.days}
+        extra = set(file_overrides.keys()) - expected_slugs
+        if extra:
+            raise ValueError(
+                f"{config_root / f'tier-{t.n:02d}.json'} contains unknown slugs: {sorted(extra)}"
+            )
+
+        write_file(
+            tier_folder / "_category_.json",
+            json.dumps(
+                {
+                    "label": f"TIER {t.n} — {t.name}",
+                    "position": t.n,
+                    "link": {
+                        "type": "generated-index",
+                        "title": f"TIER {t.n} — {t.name}",
+                        "description": f"Days {t.days[0].n:03d}–{t.days[-1].n:03d}",
+                    },
+                },
+                indent=2,
+            )
+            + "\n",
+        )
+
+        for i, d in enumerate(t.days, start=1):
+            slug = slugify(d.title)
+            filename = f"{slug}.md"
+
+            sidebar_label = f"{d.emoji} {d.title}"
+            title = f"{d.emoji} — {d.title}"
+
+            effective = merge_section(global_defaults, tier_defaults)
+            effective = merge_section(effective, file_overrides.get(slug, {}))
+
+            task = effective.get("task", ["TODO"])
+            checklist = effective.get("checklist", ["Works", "Cleaned up", "(Optional) 1 upgrade / stretch"])
+
+            hints_block = effective.get("hints_block", {})
+            hints_enabled = bool(hints_block.get("enabled", False))
+            hints = effective.get("hints", []) if hints_enabled else []
+
+            if "docs_links" in effective:
+                docs_links = effective["docs_links"]
+            else:
+                docs_links = links_for_tier(t.n)
+
+            path = tier_folder / filename
+            existing = path.read_text(encoding="utf-8") if path.exists() else ""
+            existing = normalize_newlines(existing)
+
+            md = upsert_frontmatter(
+                existing,
+                title=title,
+                sidebar_label=sidebar_label,
+                sidebar_position=i,
+            )
+
+            md = replace_or_append_section(md, "Task", section_body_from_lines(render_bullets(task)))
+            md = replace_or_append_section(md, "Checklist", section_body_from_lines(render_checklist(checklist)))
+
+            if hints_enabled:
+                md = replace_or_append_section(md, "Hints", section_body_from_lines(render_bullets(hints)))
+            else:
+                md = remove_section(md, "Hints")
+
+            if docs_links:
+                md = replace_or_append_section(
+                    md, "Docs / Tutorials", section_body_from_lines(render_docs_links(docs_links))
+                )
+            else:
+                md = remove_section(md, "Docs / Tutorials")
+
+            write_file(path, md.rstrip() + "\n")
+
+    return docs_root
