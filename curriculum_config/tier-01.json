@@ -15,7 +15,7 @@
     }
   },
   "files": {
-    "print-spell-hello-world": {
+    "print-something-hello-world": {
       "task": [
         "Create a new file named hello.py.",
         "Write a program that prints: Hello, world! (exactly)",
@@ -32,7 +32,7 @@
         "(Optional) Add a third variable (favorite_food, favorite_game, etc.)."
       ]
     },
-    "echo-mage-input-output": {
+    "ins-and-outs-input-output": {
       "task": [
         "Create a file named echo.py.",
         "Ask the user for their name using input(...).",

@@ -4,16 +4,16 @@ Weird config file hahah
 
 RAW = r"""
 TIER 1 — NOOB
-Day 001 💚 — Print Spell: Hello, World
+Day 001 💚 — Print Something: Hello, World
  Day 002 💚 — Variable Storage: Store + Show
- Day 003 💚 — Echo Mage: Input → Output
+ Day 003 💚 — Ins and Outs: Input → Output
  Day 004 💛 — Number Parser: str → int/float
  Day 005 💛 — Calculator: + − × ÷
  Day 006 💚 — If Gate I: Even / Odd
  Day 007 💚 — Compare Trio: Max of 3
  Day 008 💛 — Loop Drill I: Count 1..N
  Day 009 💛 — FizzBuzz I
- Day 010 💜🎰 — Boss: Guess-the-Number I
+ Day 010 💜⭐ — Boss: Guess-the-Number I
 
 TIER 2 — BEGINNER
 Day 011 💚 — Variable Chest Reload: Types + Reassign
@@ -121,5 +121,5 @@ Day 091 💚 — Roblox Studio Boot
  Day 097 💛 — Score State: IntValue counter
  Day 098 💛 — Score UI: BillboardGui label
  Day 099 💛 — Python Flashback II: Frequency Counter III
- Day 100 💜🚀 — Final Boss: Ship Roblox Obby (coin + hazard + checkpoint + score UI)
+ Day 100 💜👑 — Final Boss: CREATE ROBLOX OBBY (coin + hazard + checkpoint + score UI)
 """.strip("\n")

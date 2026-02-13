@@ -1,6 +1,6 @@
 ---
-title: "💜🎰 — Boss: Guess-the-Number I"
-sidebar_label: "💜🎰 Boss: Guess-the-Number I"
+title: "💜⭐ — Boss: Guess-the-Number I"
+sidebar_label: "💜⭐ Boss: Guess-the-Number I"
 sidebar_position: 10
 ---
 
