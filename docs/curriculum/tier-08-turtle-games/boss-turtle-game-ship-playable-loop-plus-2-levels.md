@@ -6,15 +6,16 @@ sidebar_position: 10
 
 ## Task
 
+
 - TODO
 
 ## Checklist
+
 
 - [ ] Works
 - [ ] Cleaned up
 - [ ] (Optional) 1 upgrade / stretch
 
-
 ## Docs / Tutorials
-- [Python turtle](https://docs.python.org/3/library/turtle.html)
 
+- [Python turtle](https://docs.python.org/3/library/turtle.html)
