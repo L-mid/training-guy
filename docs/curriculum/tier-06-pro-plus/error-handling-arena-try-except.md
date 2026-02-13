@@ -7,9 +7,11 @@ sidebar_position: 9
 ## Task
 
 
-- TODO
+
+- None
 
 ## Checklist
+
 
 
 - [ ] Works
@@ -17,6 +19,7 @@ sidebar_position: 9
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
 
 - [pathlib](https://docs.python.org/3/library/pathlib.html)
 - [csv](https://docs.python.org/3/library/csv.html)

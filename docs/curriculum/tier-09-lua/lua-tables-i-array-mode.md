@@ -7,9 +7,11 @@ sidebar_position: 7
 ## Task
 
 
-- TODO
+
+- None
 
 ## Checklist
+
 
 
 - [ ] Works
@@ -17,6 +19,7 @@ sidebar_position: 7
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
 
 - [Luau docs](https://create.roblox.com/docs/luau)
 - [Luau control structures](https://create.roblox.com/docs/luau/control-structures)
