@@ -74,7 +74,7 @@ const config = {
         {
           title: 'Curriculum',
           items: [
-            { label: 'Start (Day 1)', to: '/curriculum/tier-01-noob/print-spell-hello-world/' },
+            { label: 'Start (Day 1)', to: '/curriculum/tier-01-noob/print-something-hello-world/' },
             { label: 'Tier 1 index', to: '/curriculum/tier-01-noob' },
           ],
         },
