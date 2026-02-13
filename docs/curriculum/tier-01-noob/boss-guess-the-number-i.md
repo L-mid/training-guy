@@ -17,6 +17,8 @@ sidebar_position: 10
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)
+- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [YouTube: While Loops (Tech With Tim)](https://www.youtube.com/watch?v=U_nugSKtbSk)
 
 ## Hints
 

@@ -16,3 +16,5 @@ sidebar_position: 4
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)
+- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [YouTube: Integers & Floats (Corey Schafer)](https://www.youtube.com/watch?v=khKv-8q7YmY)

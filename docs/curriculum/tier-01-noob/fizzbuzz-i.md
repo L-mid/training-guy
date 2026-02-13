@@ -18,6 +18,7 @@ sidebar_position: 9
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)
+- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
 - [YouTube: FizzBuzz (Programming with Mosh)](https://www.youtube.com/watch?v=z3-XFI_nXNM)
 
 ## Example run

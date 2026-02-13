@@ -8,6 +8,10 @@
       {
         "label": "Built-in Functions",
         "url": "https://docs.python.org/3/library/functions.html"
+      },
+      {
+        "label": "YouTube Playlist: Tech With Tim – Python Programming Tutorials",
+        "url": "https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm"
       }
     ],
     "hints_block": {
@@ -21,6 +25,12 @@
         "Write a program that prints: Hello, world! (exactly)",
         "Run it from the terminal: python hello.py",
         "(Optional) Print 3 different lines."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: Install + run your first Python program (Corey Schafer)",
+          "url": "https://www.youtube.com/watch?v=YYXdXT2l-Gg"
+        }
       ]
     },
     "variable-storage-store-plus-show": {
@@ -30,6 +40,12 @@
         "Print both values in one sentence.",
         "Change one variable and print again.",
         "(Optional) Add a third variable (favorite_food, favorite_game, etc.)."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: Variables & Data Types (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=OFrLs22MDAw"
+        }
       ]
     },
     "ins-and-outs-input-output": {
@@ -39,6 +55,12 @@
         "Print a greeting using the user's input.",
         "Ask for a second value (favorite color / game / animal) and echo it back.",
         "(Optional) Format the output nicely (newlines, punctuation)."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: Basic Operators & Input (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=QQrcd_62VWM"
+        }
       ]
     },
     "number-parser-str-int-float": {
@@ -48,6 +70,12 @@
         "Read one decimal number (float) and print it * 2.",
         "Print the type(...) of both parsed values.",
         "(Optional) Handle bad input by printing a friendly message."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: Integers & Floats (Corey Schafer)",
+          "url": "https://www.youtube.com/watch?v=khKv-8q7YmY"
+        }
       ]
     },
     "calculator-plus": {
@@ -57,6 +85,12 @@
         "Print the results of: +, -, *, /.",
         "If the second number is 0, don’t crash on division (print a message).",
         "(Optional) Ask for the operator (+ - * /) and only do that one."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: Basic Operators & Input (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=QQrcd_62VWM"
+        }
       ]
     },
     "if-gate-i-even-odd": {
@@ -66,6 +100,12 @@
         "If n is even, print: even. Otherwise print: odd.",
         "Test with: 0, 1, 2, -3.",
         "(Optional) Also print whether n is positive/negative/zero."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: IF / ELIF / ELSE (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=vA4r_MPRNsg"
+        }
       ]
     },
     "compare-trio-max-of-3": {
@@ -75,6 +115,12 @@
         "Print the largest value.",
         "Test with a tie case (like 5, 5, 1).",
         "(Optional) Print the smallest value too."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: IF / ELIF / ELSE (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=vA4r_MPRNsg"
+        }
       ]
     },
     "loop-drill-i-count-1-n": {
@@ -84,6 +130,12 @@
         "Print the numbers 1..N (one per line).",
         "If `N <= 0`, print a message instead of looping.",
         "(Optional) Also print N..1 (countdown)."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: For Loops (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=vKeoXxVaga4"
+        }
       ]
     },
     "fizzbuzz-i": {
@@ -164,6 +216,12 @@
         "Use: import random and random.randint(1, 100).",
         "Use a while True loop, break when correct.",
         "Keep a counter guesses += 1 each loop."
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: While Loops (Tech With Tim)",
+          "url": "https://www.youtube.com/watch?v=U_nugSKtbSk"
+        }
       ]
     }
   }
