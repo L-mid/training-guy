@@ -4,13 +4,13 @@ from pathlib import Path
 
 from scripts.curriculum_gen.generator import generate
 
-from ._util import page_path, read_text, section_body, write_json
+from ._util import page_path, read_text, section_body, write_json, read_json
 
 
 def test_global_defaults_apply_everywhere(tmp_repo: Path, tier_index) -> None:
     """
     Verifies:
-    - global defaults apply everywhere
+    - global defaults apply wherever a field is not overridden
     - docs section exists (either config docs_links or fallback links_for_tier)
     """
     write_json(
@@ -26,12 +26,29 @@ def test_global_defaults_apply_everywhere(tmp_repo: Path, tier_index) -> None:
 
     generate(repo_root=tmp_repo)
 
+    # Read tier configs (if present) so we can detect overrides
+    def tier_cfg(tier_n: int) -> dict:
+        p = tmp_repo / "curriculum_config" / f"tier-{tier_n:02}.json"
+        return read_json(p) if p.exists() else {}
+
     for tier_n in range(1, 11):
         slug = tier_index.tier_to_first_day_slug[tier_n]
         folder = tier_index.tier_to_folder[tier_n]
         md = read_text(page_path(tmp_repo, tier_folder=folder, day_slug=slug))
 
-        assert "- __GLOBAL_TASK_SENTINEL__" in section_body(md, "Task")
+        cfg = tier_cfg(tier_n)
+        tier_defaults = cfg.get("tier_defaults", {}) or {}
+        files = cfg.get("files", {}) or {}
+        day_cfg = files.get(slug, {}) or {}
+
+        task_overridden = ("task" in tier_defaults) or ("task" in day_cfg)
+
+        task_body = section_body(md, "Task")
+        if task_overridden:
+            assert "- __GLOBAL_TASK_SENTINEL__" not in task_body
+        else:
+            assert "- __GLOBAL_TASK_SENTINEL__" in task_body
+
         assert section_body(md, "Docs / Tutorials"), f"Docs section missing for tier {tier_n}"
 
 

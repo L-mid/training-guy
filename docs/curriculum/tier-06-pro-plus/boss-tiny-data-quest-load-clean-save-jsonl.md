@@ -4,38 +4,7 @@ sidebar_label: "💜🗺️ Boss: Tiny Data Quest (load → clean → save JSONL
 sidebar_position: 10
 ---
 
-## Task
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
-
 ## Docs / Tutorials
-
-
-
-
-
 
 - [pathlib](https://docs.python.org/3/library/pathlib.html)
 - [csv](https://docs.python.org/3/library/csv.html)

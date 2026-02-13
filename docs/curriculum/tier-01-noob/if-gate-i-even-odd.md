@@ -6,36 +6,13 @@ sidebar_position: 6
 
 ## Task
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
+- Create a file named even_odd.py.
+- Read an integer n.
+- If n is even, print: even. Otherwise print: odd.
+- Test with: 0, 1, 2, -3.
+- (Optional) Also print whether n is positive/negative/zero.
 
 ## Docs / Tutorials
-
-
-
-
-
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)

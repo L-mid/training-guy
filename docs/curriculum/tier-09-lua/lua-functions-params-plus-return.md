@@ -4,38 +4,7 @@ sidebar_label: "💛 Lua Functions (params + return)"
 sidebar_position: 6
 ---
 
-## Task
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
-
 ## Docs / Tutorials
-
-
-
-
-
 
 - [Luau docs](https://create.roblox.com/docs/luau)
 - [Luau control structures](https://create.roblox.com/docs/luau/control-structures)

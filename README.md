@@ -34,7 +34,7 @@ npm test
 Curriculum pages live in `docs/curriculum/` and are generated/updated by:
 
 ```bash
-python -m scripts/curriculum_gen
+python -m scripts.curriculum_gen
 ```
 
 ### Config files

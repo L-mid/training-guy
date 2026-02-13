@@ -4,37 +4,6 @@ sidebar_label: "❤️‍🔥 Turtle Enemy (chase)"
 sidebar_position: 7
 ---
 
-## Task
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
-
 ## Docs / Tutorials
-
-
-
-
-
 
 - [Python turtle](https://docs.python.org/3/library/turtle.html)

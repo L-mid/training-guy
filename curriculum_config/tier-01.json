@@ -14,5 +14,106 @@
       "enabled": false
     }
   },
-  "files": {}
+  "files": {
+    "print-spell-hello-world": {
+      "task": [
+        "Create a new file named hello.py.",
+        "Write a program that prints: Hello, world! (exactly)",
+        "Run it from the terminal: python hello.py",
+        "(Optional) Print 3 different lines."
+      ]
+    },
+    "variable-storage-store-plus-show": {
+      "task": [
+        "Create a file named variables.py.",
+        "Make 2 variables (for example: name and age).",
+        "Print both values in one sentence.",
+        "Change one variable and print again.",
+        "(Optional) Add a third variable (favorite_food, favorite_game, etc.)."
+      ]
+    },
+    "echo-mage-input-output": {
+      "task": [
+        "Create a file named echo.py.",
+        "Ask the user for their name using input(...).",
+        "Print a greeting using the user's input.",
+        "Ask for a second value (favorite color / game / animal) and echo it back.",
+        "(Optional) Format the output nicely (newlines, punctuation)."
+      ]
+    },
+    "number-parser-str-int-float": {
+      "task": [
+        "Create a file named parse_numbers.py.",
+        "Read one whole number (int) from input and print it + 1.",
+        "Read one decimal number (float) and print it * 2.",
+        "Print the type(...) of both parsed values.",
+        "(Optional) Handle bad input by printing a friendly message."
+      ]
+    },
+    "calculator-plus": {
+      "task": [
+        "Create a file named calculator.py.",
+        "Read two numbers (use float) from input.",
+        "Print the results of: +, -, *, /.",
+        "If the second number is 0, don’t crash on division (print a message).",
+        "(Optional) Ask for the operator (+ - * /) and only do that one."
+      ]
+    },
+    "if-gate-i-even-odd": {
+      "task": [
+        "Create a file named even_odd.py.",
+        "Read an integer n.",
+        "If n is even, print: even. Otherwise print: odd.",
+        "Test with: 0, 1, 2, -3.",
+        "(Optional) Also print whether n is positive/negative/zero."
+      ]
+    },
+    "compare-trio-max-of-3": {
+      "task": [
+        "Create a file named max3.py.",
+        "Read three integers a, b, c.",
+        "Print the largest value.",
+        "Test with a tie case (like 5, 5, 1).",
+        "(Optional) Print the smallest value too."
+      ]
+    },
+    "loop-drill-i-count-1-n": {
+      "task": [
+        "Create a file named count_to_n.py.",
+        "Read an integer N.",
+        "Print the numbers 1..N (one per line).",
+        "If `N <= 0`, print a message instead of looping.",
+        "(Optional) Also print N..1 (countdown)."
+      ]
+    },
+    "fizzbuzz-i": {
+      "task": [
+        "Create a file named fizzbuzz.py.",
+        "For numbers 1..N:",
+        "- Print Fizz if divisible by 3",
+        "- Print Buzz if divisible by 5",
+        "- Print FizzBuzz if divisible by both",
+        "- Otherwise print the number",
+        "(Optional) Let the user choose N; default to 100."
+      ]
+    },
+    "boss-guess-the-number-i": {
+      "task": [
+        "Create a file named guess.py.",
+        "Pick a secret number between 1 and 100.",
+        "Loop: ask for a guess until they get it right.",
+        "After each guess, print: too high / too low.",
+        "When correct, print how many guesses it took.",
+        "(Optional) Add an attempt limit (like 10 tries)."
+      ],
+      "hints_block": {
+        "enabled": true
+      },
+      "hints": [
+        "Use: import random and random.randint(1, 100).",
+        "Use a while True loop, break when correct.",
+        "Keep a counter guesses += 1 each loop."
+      ]
+    }
+  }
 }

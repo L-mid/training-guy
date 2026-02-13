@@ -42,7 +42,9 @@ Merge semantics:
 
 
 _ALLOWED_TIER_ROOT_KEYS = {"tier_defaults", "files"}
-_ALLOWED_GLOBAL_ROOT_KEYS = {"defaults"}
+_ALLOWED_GLOBAL_ROOT_KEYS = {"defaults", "site"}
+
+_ALLOWED_SITE_KEYS = {"max_tier"}
 
 _ALLOWED_SECTION_KEYS = {
     "task",
@@ -96,6 +98,17 @@ def _validate_section_obj(obj: dict[str, Any], ctx: str) -> None:
             raise ValueError(f"{ctx}.hints_block must be an object")
         if "enabled" in hb and not isinstance(hb["enabled"], bool):
             raise ValueError(f"{ctx}.hints_block.enabled must be a bool")
+
+
+def _validate_site_obj(obj: dict[str, Any], ctx: str) -> None:
+    extra = set(obj.keys()) - _ALLOWED_SITE_KEYS
+    if extra:
+        raise ValueError(f"Unknown keys in {ctx}: {sorted(extra)}")
+
+    if "max_tier" in obj and obj["max_tier"] is not None:
+        mt = obj["max_tier"]
+        if not isinstance(mt, int) or mt < 1:
+            raise ValueError(f"{ctx}.max_tier must be an int >= 1")
 
 
 def merge_section(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
@@ -153,6 +166,32 @@ def load_global_defaults(config_root: Path) -> dict[str, Any]:
 
     _validate_section_obj(defaults, "global.json.defaults")
     return defaults
+
+
+def load_site_config(config_root: Path) -> dict[str, Any]:
+    """Load curriculum_config/global.json site settings.
+
+    Returns the inner "site" object (validated), or {} if missing.
+
+    Supported keys:
+      - max_tier: int >= 1
+    """
+    cfg = _read_json(config_root / "global.json")
+    if not cfg:
+        return {}
+
+    extra = set(cfg.keys()) - _ALLOWED_GLOBAL_ROOT_KEYS
+    if extra:
+        raise ValueError(f"Unknown keys in global.json: {sorted(extra)}")
+
+    site = cfg.get("site", {})
+    if site is None:
+        return {}
+    if not isinstance(site, dict):
+        raise ValueError("global.json.site must be an object")
+
+    _validate_site_obj(site, "global.json.site")
+    return site
 
 
 def load_tier_config(config_root: Path, tier_n: int) -> dict[str, Any]:

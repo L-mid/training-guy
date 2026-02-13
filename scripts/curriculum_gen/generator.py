@@ -1,10 +1,11 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
-from .config import load_global_defaults, load_tier_config, merge_section
+from .config import load_global_defaults, load_site_config, load_tier_config, merge_section
 from .links import links_for_tier
 from .markdown import (
     normalize_newlines,
@@ -45,6 +46,8 @@ def generate(*, repo_root: Path) -> Path:
 
     tiers = parse_curriculum(RAW)
     global_defaults = load_global_defaults(config_root)
+    site_cfg = load_site_config(config_root)
+    max_public_tier = site_cfg.get("max_tier")
 
     # Root category + landing page
     write_file(
@@ -66,6 +69,8 @@ def generate(*, repo_root: Path) -> Path:
 
     landing = ["# Curriculum\n", "\n## Tiers\n"]
     for t in tiers:
+        if isinstance(max_public_tier, int) and t.n > max_public_tier:
+            continue
         tier_folder = f"tier-{t.n:02d}-{slugify(t.name)}"
         landing.append(f"- **TIER {t.n} — {t.name}** → ./{tier_folder}/\n")
     write_file(docs_root / "index.mdx", "".join(landing) + "\n")
@@ -85,6 +90,9 @@ def generate(*, repo_root: Path) -> Path:
                 f"{config_root / f'tier-{t.n:02d}.json'} contains unknown slugs: {sorted(extra)}"
             )
 
+        tier_folder = docs_root / f"tier-{t.n:02d}-{slugify(t.name)}"
+        tier_index_slug = f"/curriculum/{tier_folder.name}"
+
         write_file(
             tier_folder / "_category_.json",
             json.dumps(
@@ -93,6 +101,7 @@ def generate(*, repo_root: Path) -> Path:
                     "position": t.n,
                     "link": {
                         "type": "generated-index",
+                        "slug": tier_index_slug,
                         "title": f"TIER {t.n} — {t.name}",
                         "description": f"Days {t.days[0].n:03d}–{t.days[-1].n:03d}",
                     },
@@ -112,8 +121,12 @@ def generate(*, repo_root: Path) -> Path:
             effective = merge_section(global_defaults, tier_defaults)
             effective = merge_section(effective, file_overrides.get(slug, {}))
 
-            task = effective.get("task", ["TODO"])
-            checklist = effective.get("checklist", ["Works", "Cleaned up", "(Optional) 1 upgrade / stretch"])
+            # If a block is None or an empty list, we treat it as "do not render".
+            task = effective.get("task")
+            checklist = effective.get(
+                "checklist",
+                ["Works", "Cleaned up", "(Optional) 1 upgrade / stretch"],
+            )
 
             hints_block = effective.get("hints_block", {})
             hints_enabled = bool(hints_block.get("enabled", False))
@@ -135,8 +148,18 @@ def generate(*, repo_root: Path) -> Path:
                 sidebar_position=i,
             )
 
-            md = replace_or_append_section(md, "Task", section_body_from_lines(render_bullets(task)))
-            md = replace_or_append_section(md, "Checklist", section_body_from_lines(render_checklist(checklist)))
+            # Task / Checklist are optional: if they resolve to empty/None, remove the section entirely.
+            if isinstance(task, list) and any(x.strip() for x in task):
+                md = replace_or_append_section(md, "Task", section_body_from_lines(render_bullets(task)))
+            else:
+                md = remove_section(md, "Task")
+
+            if isinstance(checklist, list) and any(x.strip() for x in checklist):
+                md = replace_or_append_section(
+                    md, "Checklist", section_body_from_lines(render_checklist(checklist))
+                )
+            else:
+                md = remove_section(md, "Checklist")
 
             if hints_enabled:
                 md = replace_or_append_section(md, "Hints", section_body_from_lines(render_bullets(hints)))
@@ -150,6 +173,9 @@ def generate(*, repo_root: Path) -> Path:
             else:
                 md = remove_section(md, "Docs / Tutorials")
 
-            write_file(path, md.rstrip() + "\n")
+            # Final formatting pass: prevent runaway blank lines from accumulating
+            # after multiple generations.
+            md = re.sub(r"\n{3,}", "\n\n", md).strip("\n") + "\n"
+            write_file(path, md)
 
     return docs_root

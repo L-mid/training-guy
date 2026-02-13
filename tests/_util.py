@@ -11,6 +11,10 @@ def write_json(path: Path, obj: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, indent=2) + "\n", encoding="utf-8")
 
+def read_json(path: Path) -> Any:
+    """Read JSON from disk (tests convenience)."""
+    return json.loads(path.read_text(encoding="utf-8"))
+
 
 def read_text(path: Path) -> str:
     """Read UTF-8 text (convenience)."""

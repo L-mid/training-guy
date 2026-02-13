@@ -6,36 +6,13 @@ sidebar_position: 2
 
 ## Task
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
+- Create a file named variables.py.
+- Make 2 variables (for example: name and age).
+- Print both values in one sentence.
+- Change one variable and print again.
+- (Optional) Add a third variable (favorite_food, favorite_game, etc.).
 
 ## Docs / Tutorials
-
-
-
-
-
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)

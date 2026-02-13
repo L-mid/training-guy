@@ -6,36 +6,13 @@ sidebar_position: 4
 
 ## Task
 
-
-
-
-
-
-
-
-
-
-
-
-
-## Checklist
-
-
-
-
-
-
-
-- [ ] Works
-- [ ] Cleaned up
-- [ ] (Optional) 1 upgrade / stretch
+- Create a file named parse_numbers.py.
+- Read one whole number (int) from input and print it + 1.
+- Read one decimal number (float) and print it * 2.
+- Print the type(...) of both parsed values.
+- (Optional) Handle bad input by printing a friendly message.
 
 ## Docs / Tutorials
-
-
-
-
-
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)

@@ -1,11 +1,11 @@
 {
+  "site": {
+    "max_tier": 1
+  },
   "defaults": {
     "task": [
     ],
     "checklist": [
-      "Works",
-      "Cleaned up",
-      "(Optional) 1 upgrade / stretch"
     ],
     "hints_block": {
       "enabled": false
