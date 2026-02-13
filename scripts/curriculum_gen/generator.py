@@ -152,6 +152,9 @@ def generate(*, repo_root: Path) -> Path:
                 ["Works", "Cleaned up", "(Optional) 1 upgrade / stretch"],
             )
 
+            example_run = effective.get("example_run")
+            solution_block = effective.get("solution_block")
+
             hints_block = effective.get("hints_block", {})
             hints_enabled = bool(hints_block.get("enabled", False))
             hints = effective.get("hints", []) if hints_enabled else []
@@ -189,6 +192,49 @@ def generate(*, repo_root: Path) -> Path:
                 md = replace_or_append_section(md, "Hints", section_body_from_lines(render_bullets(hints)))
             else:
                 md = remove_section(md, "Hints")
+
+            # Example run (raw markdown lines; not forced into bullets)
+            if isinstance(example_run, list) and any(x.strip() for x in example_run):
+                md = replace_or_append_section(md, "Example run", section_body_from_lines(example_run))
+            else:
+                md = remove_section(md, "Example run")
+
+            # Solution (spoiler)
+            if isinstance(solution_block, dict) and solution_block.get("enabled", True):
+                summary = solution_block.get("summary") or "Show solution"
+                language = solution_block.get("language") or "python"
+                filename = solution_block.get("filename")
+                text_lines = solution_block.get("text") or []
+                code_lines = solution_block.get("code") or []
+
+                body_lines: list[str] = []
+                body_lines.append("<details>")
+                body_lines.append(f"  <summary>{summary}</summary>")
+                body_lines.append("")
+
+                # Optional text block inside the spoiler
+                if isinstance(text_lines, list) and any(x.strip() for x in text_lines):
+                    body_lines.extend(text_lines)
+                    body_lines.append("")
+
+                if isinstance(code_lines, list) and any(x.strip() for x in code_lines):
+                    if isinstance(filename, str) and filename.strip():
+                        body_lines.append(f"```{language} title=\"{filename.strip()}\"")
+                    else:
+                        body_lines.append(f"```{language}")
+                    body_lines.extend(code_lines)
+                    body_lines.append("```")
+
+                body_lines.append("")
+                body_lines.append("</details>")
+
+                # Only render if there's *something* inside.
+                if len(body_lines) > 5:
+                    md = replace_or_append_section(md, "Solution (spoiler)", section_body_from_lines(body_lines))
+                else:
+                    md = remove_section(md, "Solution (spoiler)")
+            else:
+                md = remove_section(md, "Solution (spoiler)")
 
             if docs_links:
                 md = replace_or_append_section(

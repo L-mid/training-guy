@@ -16,13 +16,23 @@ curriculum_config/global.json
     "checklist": ["..."],
     "hints": ["..."],
     "docs_links": [{"label": "...", "url": "..."}],
+    "example_run": ["..."],
+    "solution_block": {
+      "enabled": true,
+      "summary": "Show solution",
+      "language": "python",
+      "filename": "main.py",
+      "text": ["Optional intro line"],
+      "code": ["print('hello')"]
+    },
     "hints_block": {"enabled": true},
 
     // optional additive list semantics:
     "task_append": ["..."],
     "checklist_append": ["..."],
     "hints_append": ["..."],
-    "docs_links_append": [{"label": "...", "url": "..."}]
+    "docs_links_append": [{"label": "...", "url": "..."}],
+    "example_run_append": ["..."]
   }
 }
 
@@ -51,11 +61,14 @@ _ALLOWED_SECTION_KEYS = {
     "checklist",
     "hints",
     "docs_links",
+    "example_run",
+    "solution_block",
     "hints_block",
     "task_append",
     "checklist_append",
     "hints_append",
     "docs_links_append",
+    "example_run_append",
 }
 
 
@@ -73,7 +86,16 @@ def _validate_section_obj(obj: dict[str, Any], ctx: str) -> None:
     if extra:
         raise ValueError(f"Unknown keys in {ctx}: {sorted(extra)}")
 
-    for k in ("task", "task_append", "checklist", "checklist_append", "hints", "hints_append"):
+    for k in (
+        "task",
+        "task_append",
+        "checklist",
+        "checklist_append",
+        "hints",
+        "hints_append",
+        "example_run",
+        "example_run_append",
+    ):
         if k in obj and obj[k] is not None:
             if not isinstance(obj[k], list) or not all(isinstance(x, str) for x in obj[k]):
                 raise ValueError(f"{ctx}.{k} must be a list[str]")
@@ -98,6 +120,30 @@ def _validate_section_obj(obj: dict[str, Any], ctx: str) -> None:
             raise ValueError(f"{ctx}.hints_block must be an object")
         if "enabled" in hb and not isinstance(hb["enabled"], bool):
             raise ValueError(f"{ctx}.hints_block.enabled must be a bool")
+
+    if "solution_block" in obj and obj["solution_block"] is not None:
+        sb = obj["solution_block"]
+        if not isinstance(sb, dict):
+            raise ValueError(f"{ctx}.solution_block must be an object")
+
+        allowed_sb_keys = {"enabled", "summary", "language", "filename", "text", "code"}
+        extra_sb = set(sb.keys()) - allowed_sb_keys
+        if extra_sb:
+            raise ValueError(f"Unknown keys in {ctx}.solution_block: {sorted(extra_sb)}")
+
+        if "enabled" in sb and not isinstance(sb["enabled"], bool):
+            raise ValueError(f"{ctx}.solution_block.enabled must be a bool")
+        if "summary" in sb and sb["summary"] is not None and not isinstance(sb["summary"], str):
+            raise ValueError(f"{ctx}.solution_block.summary must be a str")
+        if "language" in sb and sb["language"] is not None and not isinstance(sb["language"], str):
+            raise ValueError(f"{ctx}.solution_block.language must be a str")
+        if "filename" in sb and sb["filename"] is not None and not isinstance(sb["filename"], str):
+            raise ValueError(f"{ctx}.solution_block.filename must be a str")
+
+        for k in ("text", "code"):
+            if k in sb and sb[k] is not None:
+                if not isinstance(sb[k], list) or not all(isinstance(x, str) for x in sb[k]):
+                    raise ValueError(f"{ctx}.solution_block.{k} must be a list[str]")
 
 
 def _validate_site_obj(obj: dict[str, Any], ctx: str) -> None:

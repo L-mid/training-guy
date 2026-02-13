@@ -95,7 +95,58 @@
         "- Print FizzBuzz if divisible by both",
         "- Otherwise print the number",
         "(Optional) Let the user choose N; default to 100."
-      ]
+      ],
+      "docs_links_append": [
+        {
+          "label": "YouTube: FizzBuzz (Programming with Mosh)",
+          "url": "https://www.youtube.com/watch?v=z3-XFI_nXNM"
+        }
+      ],
+      "example_run": [
+        "```text",
+        "$ python fizzbuzz.py",
+        "N (default 100): 16",
+        "1",
+        "2",
+        "Fizz",
+        "4",
+        "Buzz",
+        "Fizz",
+        "7",
+        "8",
+        "Fizz",
+        "Buzz",
+        "11",
+        "Fizz",
+        "13",
+        "14",
+        "FizzBuzz",
+        "16",
+        "```"
+      ],
+      "solution_block": {
+        "enabled": false,
+        "summary": "Show one possible solution",
+        "language": "python",
+        "filename": "fizzbuzz.py",
+        "text": [
+          "Keep it simple. This is one valid way; many others are fine."
+        ],
+        "code": [
+          "s = input('N (default 100): ').strip()",
+          "n = int(s) if s else 100",
+          "",
+          "for i in range(1, n + 1):",
+          "    if i % 15 == 0:",
+          "        print('FizzBuzz')",
+          "    elif i % 3 == 0:",
+          "        print('Fizz')",
+          "    elif i % 5 == 0:",
+          "        print('Buzz')",
+          "    else:",
+          "        print(i)"
+        ]
+      }
     },
     "boss-guess-the-number-i": {
       "task": [
