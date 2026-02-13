@@ -294,7 +294,7 @@ def main() -> None:
             filename = f"{slugify(d.title)}.md"
             sidebar_label = f"{d.emoji} {d.title}"
             title = f"{d.emoji} — {d.title}"
-
+ 
             docs_lines = []
             if tier_links:
                 docs_lines.append("\n## Docs / Tutorials\n")
