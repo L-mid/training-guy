@@ -8,9 +8,13 @@ sidebar_position: 1
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 1
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [Python Tutorial](https://docs.python.org/3/tutorial/)

@@ -508,13 +508,17 @@ def write_file(path: Path, text: str) -> None:
     path.write_text(text, encoding="utf-8")
 
 
-def main() -> None:
-    repo_root = Path(__file__).resolve().parents[1]
+def generate(*, repo_root: Path) -> Path:
+    """
+    Generate/refresh curriculum docs under {repo_root}/docs/curriculum.
+
+    Returns:
+        docs_root Path
+    """
     docs_root = repo_root / "docs" / "curriculum"
     config_root = repo_root / "curriculum_config"
 
     tiers = parse(RAW)
-
     global_defaults = load_global_defaults(config_root)
 
     # Root category + landing page
@@ -549,7 +553,6 @@ def main() -> None:
 
         tier_folder = docs_root / f"tier-{t.n:02d}-{slugify(t.name)}"
 
-        # Guardrail: config files[...] must match real slugs for this tier.
         expected_slugs = {slugify(d.title) for d in t.days}
         extra = set(file_overrides.keys()) - expected_slugs
         if extra:
@@ -581,7 +584,6 @@ def main() -> None:
             sidebar_label = f"{d.emoji} {d.title}"
             title = f"{d.emoji} — {d.title}"
 
-            # Effective config for this page: global -> tier -> file
             effective = _merge(global_defaults, tier_defaults)
             effective = _merge(effective, file_overrides.get(slug, {}))
 
@@ -610,13 +612,11 @@ def main() -> None:
                 sidebar_position=i,
             )
 
-            # Always manage Task + Checklist
             md = _replace_or_append_section(md, "Task", _section_body_from_lines(_render_bullets(task)))
             md = _replace_or_append_section(
                 md, "Checklist", _section_body_from_lines(_render_checklist(checklist))
             )
 
-            # Optional Hints
             if hints_enabled:
                 md = _replace_or_append_section(
                     md, "Hints", _section_body_from_lines(_render_bullets(hints))
@@ -624,7 +624,6 @@ def main() -> None:
             else:
                 md = _remove_section(md, "Hints")
 
-            # Optional Docs
             if docs_links:
                 md = _replace_or_append_section(
                     md,
@@ -637,6 +636,12 @@ def main() -> None:
             write_file(path, md.rstrip() + "\n")
 
     print(f"Generated curriculum at: {docs_root}")
+    return docs_root
+
+
+def main() -> None:
+    repo_root = Path(__file__).resolve().parents[1]
+    generate(repo_root=repo_root)
 
 
 if __name__ == "__main__":

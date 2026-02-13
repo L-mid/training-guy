@@ -8,9 +8,13 @@ sidebar_position: 8
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 8
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [pathlib](https://docs.python.org/3/library/pathlib.html)

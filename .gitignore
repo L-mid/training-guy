@@ -20,3 +20,6 @@ yarn-debug.log*
 yarn-error.log*
 zip_cmd.py
 *.zip
+.venv
+/__pycache__
+.pytest_cache

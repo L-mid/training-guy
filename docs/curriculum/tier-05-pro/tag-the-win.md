@@ -8,9 +8,13 @@ sidebar_position: 9
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 9
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [Git Reference](https://git-scm.com/docs)

@@ -1,7 +1,6 @@
 {
   "defaults": {
     "task": [
-      "None"
     ],
     "checklist": [
       "Works",

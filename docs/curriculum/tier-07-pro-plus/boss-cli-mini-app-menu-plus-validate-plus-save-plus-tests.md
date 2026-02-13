@@ -8,9 +8,13 @@ sidebar_position: 10
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 10
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [pytest docs](https://docs.pytest.org/en/stable/)

@@ -8,9 +8,13 @@ sidebar_position: 6
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 6
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [Roblox scripting docs](https://create.roblox.com/docs/scripting)

@@ -8,9 +8,13 @@ sidebar_position: 3
 
 
 
-- None
+
+
+
 
 ## Checklist
+
+
 
 
 
@@ -19,6 +23,8 @@ sidebar_position: 3
 - [ ] (Optional) 1 upgrade / stretch
 
 ## Docs / Tutorials
+
+
 
 
 - [Python turtle](https://docs.python.org/3/library/turtle.html)
