@@ -1,0 +1,22 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "Luau docs",
+        "url": "https://create.roblox.com/docs/luau"
+      },
+      {
+        "label": "Luau control structures",
+        "url": "https://create.roblox.com/docs/luau/control-structures"
+      },
+      {
+        "label": "Luau functions",
+        "url": "https://create.roblox.com/docs/luau/functions"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

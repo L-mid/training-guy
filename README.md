@@ -2,6 +2,38 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+## Curriculum generation + config
+
+Curriculum pages live in `docs/curriculum/` and are generated/updated by:
+
+```bash
+python scripts/gen_curriculum.py
+```
+
+### Config files
+
+All curriculum content overrides are data-driven under `curriculum_config/`:
+
+- `curriculum_config/global.json`
+  - `defaults`: applied to every curriculum page
+- `curriculum_config/tier-XX.json` (e.g. `tier-01.json`)
+  - `tier_defaults`: applied to every page in that tier
+  - `files`: per-file overrides, keyed by the page slug (the markdown filename without `.md`)
+
+Merge order:
+`global defaults → tier defaults → file override`
+
+### Managed sections
+
+The generator only rewrites these sections (if present), preserving any other manual content:
+
+- `## Task`
+- `## Checklist`
+- `## Hints` (only if `hints_block.enabled: true`)
+- `## Docs / Tutorials`
+
+This lets you safely add custom explanation, examples, or extra sections without them being overwritten.
+
 ## Installation
 
 ```bash

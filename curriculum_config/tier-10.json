@@ -1,0 +1,22 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "Roblox scripting docs",
+        "url": "https://create.roblox.com/docs/scripting"
+      },
+      {
+        "label": "Intro to scripting (tutorial)",
+        "url": "https://create.roblox.com/docs/tutorials/use-case-tutorials/scripting/basic-scripting/intro-to-scripting"
+      },
+      {
+        "label": "Luau docs",
+        "url": "https://create.roblox.com/docs/luau"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

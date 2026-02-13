@@ -1,0 +1,18 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "Python Tutorial",
+        "url": "https://docs.python.org/3/tutorial/"
+      },
+      {
+        "label": "Built-in Functions",
+        "url": "https://docs.python.org/3/library/functions.html"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

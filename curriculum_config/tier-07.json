@@ -1,0 +1,14 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "pytest docs",
+        "url": "https://docs.pytest.org/en/stable/"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

@@ -1,0 +1,18 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "Git Reference",
+        "url": "https://git-scm.com/docs"
+      },
+      {
+        "label": "Pro Git (free book)",
+        "url": "https://git-scm.com/book/en/v2"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

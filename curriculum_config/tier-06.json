@@ -1,0 +1,22 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "pathlib",
+        "url": "https://docs.python.org/3/library/pathlib.html"
+      },
+      {
+        "label": "csv",
+        "url": "https://docs.python.org/3/library/csv.html"
+      },
+      {
+        "label": "json",
+        "url": "https://docs.python.org/3/library/json.html"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}

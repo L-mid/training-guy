@@ -1,0 +1,14 @@
+{
+  "tier_defaults": {
+    "docs_links": [
+      {
+        "label": "Python turtle",
+        "url": "https://docs.python.org/3/library/turtle.html"
+      }
+    ],
+    "hints_block": {
+      "enabled": false
+    }
+  },
+  "files": {}
+}
