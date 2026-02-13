@@ -79,3 +79,51 @@ else:
 ```
 
 </details>
+
+## Solution (ATTEMPT FIRST)
+
+<details>
+  <summary>Show spoiler code (calculator.py)</summary>
+
+This prints all four operations, with a safe divide-by-zero check.
+An optional single-op mode is included in comments.
+
+```python title="calculator.py"
+"""calculator.py
+
+A tiny calculator. We'll be polite about division by zero.
+"""
+
+def read_number(prompt: str) -> float:
+    """Read a float from input, retrying until valid."""
+    while True:
+        s = input(prompt).strip()
+        try:
+            return float(s)
+        except ValueError:
+            print("Please enter a number like 3 or 2.5")
+
+a = read_number("a: ")
+b = read_number("b: ")
+
+print(f"a + b = {a + b}")
+print(f"a - b = {a - b}")
+print(f"a * b = {a * b}")
+
+if b == 0:
+    print("a / b = (nope) division by zero is illegal in this kingdom")
+else:
+    print(f"a / b = {a / b}")
+
+# --- Optional single-operator mode (commented) ---
+# op = input("Choose op (+ - * /): ").strip()
+# if op == "+": print(a + b)
+# elif op == "-": print(a - b)
+# elif op == "*": print(a * b)
+# elif op == "/":
+#     print("nope" if b == 0 else a / b)
+# else:
+#     print("Unknown operator")
+```
+
+</details>

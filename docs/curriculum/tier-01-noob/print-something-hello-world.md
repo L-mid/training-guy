@@ -59,3 +59,34 @@ Line 3")
 ```
 
 </details>
+
+## Solution (ATTEMPT FIRST)
+
+<details>
+  <summary>Show spoiler code (hello.py)</summary>
+
+Keep it tiny. This is the 'first spell' of Python.
+
+```python title="hello.py"
+"""hello.py
+
+Your first Python spell 🪄
+
+Goal:
+- Print EXACTLY: Hello, world!
+- (Optional) Print a few extra lines.
+"""
+
+# The print(...) function writes text to the screen (stdout).
+print("Hello, world!")
+
+# Optional: extra lines (uncomment if you want).
+# print("I have awakened.")
+# print("Behold... my keyboard powers.")
+
+# Optional alt approach: one print call can contain newlines using 
+
+# print("Line 1\nLine 2\nLine 3")
+```
+
+</details>

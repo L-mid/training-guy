@@ -64,3 +64,35 @@ else:
 ```
 
 </details>
+
+## Solution (ATTEMPT FIRST)
+
+<details>
+  <summary>Show spoiler code (count_to_n.py)</summary>
+
+Basic loop practice. Also shows how to accumulate a sum.
+
+```python title="count_to_n.py"
+"""count_to_n.py
+
+Loop drill: count up to N (and maybe back down).
+"""
+
+N = int(input("N: ").strip())
+
+if N <= 0:
+    print("N must be positive to count. (Try 1, 2, 5, ...)" )
+else:
+    total = 0
+    for i in range(1, N + 1):
+        print(i)
+        total += i  # add i into the running total
+
+    print(f"sum = {total}")
+
+    # Optional countdown (commented):
+    # for i in range(N, 0, -1):
+    #     print(i)
+```
+
+</details>

@@ -86,3 +86,45 @@ for i in range(1, n + 1):
 ```
 
 </details>
+
+## Solution (ATTEMPT FIRST)
+
+<details>
+  <summary>Show spoiler code (fizzbuzz.py)</summary>
+
+This version is extra-commented and includes an alt approach in comments.
+
+```python title="fizzbuzz.py"
+"""fizzbuzz.py
+
+FizzBuzz: a classic loop + if logic puzzle.
+
+Rules:
+- divisible by 3 -> Fizz
+- divisible by 5 -> Buzz
+- divisible by 15 -> FizzBuzz
+"""
+
+s = input("N (default 100): ").strip()
+n = int(s) if s else 100
+
+for i in range(1, n + 1):
+    # Check 'both' first so 15 doesn't get caught by 3 or 5 early.
+    if i % 15 == 0:
+        print("FizzBuzz")
+    elif i % 3 == 0:
+        print("Fizz")
+    elif i % 5 == 0:
+        print("Buzz")
+    else:
+        print(i)
+
+# --- Alt approach (commented): build a word, then print word or number ---
+# for i in range(1, n + 1):
+#     word = ""
+#     if i % 3 == 0: word += "Fizz"
+#     if i % 5 == 0: word += "Buzz"
+#     print(word if word else i)
+```
+
+</details>

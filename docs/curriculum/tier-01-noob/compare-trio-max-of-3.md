@@ -63,3 +63,36 @@ print(f"smallest = {smallest}")
 ```
 
 </details>
+
+## Solution (ATTEMPT FIRST)
+
+<details>
+  <summary>Show spoiler code (max3.py)</summary>
+
+Two ways are shown: built-ins (easy) and manual comparisons (commented).
+
+```python title="max3.py"
+"""max3.py
+
+Find the largest of three numbers (and optionally the smallest).
+"""
+
+a = int(input("a: ").strip())
+b = int(input("b: ").strip())
+c = int(input("c: ").strip())
+
+# Easiest: use built-in max/min
+largest = max(a, b, c)
+smallest = min(a, b, c)
+
+print(f"largest = {largest}")
+print(f"smallest = {smallest}")
+
+# --- Alt approach (commented): manual comparisons ---
+# largest = a
+# if b > largest: largest = b
+# if c > largest: largest = c
+# print(largest)
+```
+
+</details>

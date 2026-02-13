@@ -69,7 +69,7 @@
           "# print(\"Behold... my keyboard powers.\")",
           "",
           "# Optional alt approach: one print call can contain newlines using \\n",
-          "# print(\"Line 1\\nLine 2\\nLine 3\")"
+          "# print(\"Line 1\\\\nLine 2\\\\nLine 3\")"
         ]
       }
     },

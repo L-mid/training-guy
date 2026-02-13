@@ -230,11 +230,11 @@ def generate(*, repo_root: Path) -> Path:
 
                 # Only render if there's *something* inside.
                 if len(body_lines) > 5:
-                    md = replace_or_append_section(md, "Solution (spoiler)", section_body_from_lines(body_lines))
+                    md = replace_or_append_section(md, "Solution (ATTEMPT FIRST)", section_body_from_lines(body_lines))
                 else:
-                    md = remove_section(md, "Solution (spoiler)")
+                    md = remove_section(md, "Solution (ATTEMPT FIRST)")
             else:
-                md = remove_section(md, "Solution (spoiler)")
+                md = remove_section(md, "Solution (ATTEMPT FIRST)")
 
             if docs_links:
                 md = replace_or_append_section(
