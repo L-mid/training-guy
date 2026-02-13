@@ -3,14 +3,5 @@ title: "Training"
 slug: /
 ---
 
-# Training (get stronger 🦾)
-
-- Go to the curriculum: [/curriculum/](/curriculum/)
-
-- ! 💚 Easy !
-- ! 💛 Medium !
-- ! ❤️‍🔥 Hard !
-- ! 💜 Boss !
-
-
-Unlock the next tier by completing all the units!
+# Fundementals
+- Go to Training (get stronger 🦾): [/curriculum/](/curriculum/)

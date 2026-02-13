@@ -103,7 +103,7 @@ def generate(*, repo_root: Path) -> Path:
                         "type": "generated-index",
                         "slug": tier_index_slug,
                         "title": f"TIER {t.n} — {t.name}",
-                        "description": f"Days {t.days[0].n:03d}–{t.days[-1].n:03d}",
+                        "description": "Do tasks → do boss.",
                     },
                 },
                 indent=2,
