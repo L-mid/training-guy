@@ -1,9 +1,9 @@
 ---
-title: "Home"
+title: "Choices (you get 3 choices)"
 slug: /
 ---
 
-## Choices (you get 3 choices)
-
 ### Fundementals
-- Go to Training (get stronger 🦾): [/curriculum/](/curriculum/)
+- Go to **Training (get stronger 🦾)**: [/curriculum/](/curriculum/)
+
+
