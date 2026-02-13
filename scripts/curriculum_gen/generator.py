@@ -67,32 +67,48 @@ def generate(*, repo_root: Path) -> Path:
         + "\n",
     )
 
-    landing = ["# Curriculum\n", "\n## Tiers\n"]
-    for t in tiers:
-        if isinstance(max_public_tier, int) and t.n > max_public_tier:
-            continue
-        tier_folder = f"tier-{t.n:02d}-{slugify(t.name)}"
-        landing = [
-            "# Curriculum\n",
-            "\n",
-            "- ! 💚 Easy !\n",
-            "- ! 💛 Medium !\n",
-            "- ! ❤️‍🔥 Hard !\n",
-            "- ! 💜 Boss !\n",
-            "\n",
-            "Unlock the next tier by completing all the units!\n",
-            "\n",
-            "## Tiers\n",
-        ]
-    write_file(docs_root / "index.mdx", "".join(landing) + "\n")
+    landing = [
+        "# Curriculum\n",
+        "\n",
+        "Difficulty:\n",
+        "- ! 💚 Easy !\n",
+        "- ! 💛 Medium !\n",
+        "- ! ❤️‍🔥 Hard !\n",
+        "- ! 💜 Boss !\n",
+        "\n",
+        "Unlock the next tier by completing all the units!\n",
+        "\n",
+        "## Tiers\n",
+    ]
 
+    available = 0
+    locked = 0
+
+    for t in tiers:
+        tier_folder = f"tier-{t.n:02d}-{slugify(t.name)}"
+
+        is_public = not isinstance(max_public_tier, int) or t.n <= max_public_tier
+        if is_public:
+            available += 1
+            landing.append(f"- ✅ [TIER {t.n} — {t.name}](/curriculum/{tier_folder})\n")
+        else:
+            locked += 1
+            landing.append(f"- 🔒 TIER {t.n} — {t.name} (locked)\n")
+
+    landing.insert(
+        landing.index("## Tiers\n"),
+        f"\n**Available now:** {available} tier(s)"
+        + (f" • **Locked:** {locked}" if locked else "")
+        + "\n",
+    )
+
+    write_file(docs_root / "index.mdx", "".join(landing) + "\n")
+        
     # Tiers + days
     for t in tiers:
         tier_cfg = load_tier_config(config_root, t.n)
         tier_defaults: dict[str, Any] = tier_cfg["tier_defaults"]
         file_overrides: dict[str, Any] = tier_cfg["files"]
-
-        tier_folder = docs_root / f"tier-{t.n:02d}-{slugify(t.name)}"
 
         expected_slugs = {slugify(d.title) for d in t.days}
         extra = set(file_overrides.keys()) - expected_slugs
