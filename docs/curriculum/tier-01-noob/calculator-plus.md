@@ -78,4 +78,4 @@ else:
 - [Python Tutorial](https://docs.python.org/3/tutorial/)
 - [Built-in Functions](https://docs.python.org/3/library/functions.html)
 - [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
-- [YouTube: Basic Operators & Input (Tech With Tim)](https://www.youtube.com/watch?v=QQrcd_62VWM)
+- [Python Program #30 - Make a Simple Calculator in Python](https://www.youtube.com/watch?v=BM_MlI6MySY)

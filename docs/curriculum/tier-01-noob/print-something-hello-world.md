@@ -24,7 +24,7 @@ Hello, world!
 <details>
   <summary>Show spoiler code (hello.py)</summary>
 
-Keep it tiny. This is the 'first spell' of Python.
+This is the 'first spell' of Python!
 
 ```python title="hello.py"
 """hello.py
