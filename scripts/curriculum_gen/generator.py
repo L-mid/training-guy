@@ -91,9 +91,6 @@ def generate(*, repo_root: Path) -> Path:
         if is_public:
             available += 1
             landing.append(f"- ✅ [TIER {t.n} — {t.name}](/curriculum/{tier_folder})\n")
-        else:
-            locked += 1
-            landing.append(f"- 🔒 TIER {t.n} — {t.name} (locked)\n")
 
     landing.insert(
         landing.index("## Tiers\n"),
