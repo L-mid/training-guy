@@ -13,13 +13,6 @@ sidebar_position: 7
 - (Optional) Print the smallest value too.
 - (Optional) Print BOTH using built-ins: max(...) and min(...).
 
-## Docs / Tutorials
-
-- [Python Tutorial](https://docs.python.org/3/tutorial/)
-- [Built-in Functions](https://docs.python.org/3/library/functions.html)
-- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
-- [YouTube: IF / ELIF / ELSE (Tech With Tim)](https://www.youtube.com/watch?v=vA4r_MPRNsg)
-
 ## Example run
 
 ```text
@@ -30,39 +23,6 @@ c: 1
 largest = 5
 smallest = 1
 ```
-
-## Solution (spoiler)
-
-<details>
-  <summary>Show spoiler code (max3.py)</summary>
-
-Two ways are shown: built-ins (easy) and manual comparisons (commented).
-
-```python title="max3.py"
-"""max3.py
-
-Find the largest of three numbers (and optionally the smallest).
-"""
-
-a = int(input("a: ").strip())
-b = int(input("b: ").strip())
-c = int(input("c: ").strip())
-
-# Easiest: use built-in max/min
-largest = max(a, b, c)
-smallest = min(a, b, c)
-
-print(f"largest = {largest}")
-print(f"smallest = {smallest}")
-
-# --- Alt approach (commented): manual comparisons ---
-# largest = a
-# if b > largest: largest = b
-# if c > largest: largest = c
-# print(largest)
-```
-
-</details>
 
 ## Solution (ATTEMPT FIRST)
 
@@ -96,3 +56,10 @@ print(f"smallest = {smallest}")
 ```
 
 </details>
+
+## Docs / Tutorials
+
+- [Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Built-in Functions](https://docs.python.org/3/library/functions.html)
+- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [YouTube: IF / ELIF / ELSE (Tech With Tim)](https://www.youtube.com/watch?v=vA4r_MPRNsg)

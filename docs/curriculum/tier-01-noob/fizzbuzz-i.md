@@ -15,13 +15,6 @@ sidebar_position: 9
 - (Optional) Let the user choose N; default to 100.
 - (Optional) Add a 'mode' where the words are different (like Zap/Zoop).
 
-## Docs / Tutorials
-
-- [Python Tutorial](https://docs.python.org/3/tutorial/)
-- [Built-in Functions](https://docs.python.org/3/library/functions.html)
-- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
-- [YouTube: FizzBuzz (Programming with Mosh)](https://www.youtube.com/watch?v=z3-XFI_nXNM)
-
 ## Example run
 
 ```text
@@ -44,48 +37,6 @@ Fizz
 FizzBuzz
 16
 ```
-
-## Solution (spoiler)
-
-<details>
-  <summary>Show spoiler code (fizzbuzz.py)</summary>
-
-This version is extra-commented and includes an alt approach in comments.
-
-```python title="fizzbuzz.py"
-"""fizzbuzz.py
-
-FizzBuzz: a classic loop + if logic puzzle.
-
-Rules:
-- divisible by 3 -> Fizz
-- divisible by 5 -> Buzz
-- divisible by 15 -> FizzBuzz
-"""
-
-s = input("N (default 100): ").strip()
-n = int(s) if s else 100
-
-for i in range(1, n + 1):
-    # Check 'both' first so 15 doesn't get caught by 3 or 5 early.
-    if i % 15 == 0:
-        print("FizzBuzz")
-    elif i % 3 == 0:
-        print("Fizz")
-    elif i % 5 == 0:
-        print("Buzz")
-    else:
-        print(i)
-
-# --- Alt approach (commented): build a word, then print word or number ---
-# for i in range(1, n + 1):
-#     word = ""
-#     if i % 3 == 0: word += "Fizz"
-#     if i % 5 == 0: word += "Buzz"
-#     print(word if word else i)
-```
-
-</details>
 
 ## Solution (ATTEMPT FIRST)
 
@@ -128,3 +79,10 @@ for i in range(1, n + 1):
 ```
 
 </details>
+
+## Docs / Tutorials
+
+- [Python Tutorial](https://docs.python.org/3/tutorial/)
+- [Built-in Functions](https://docs.python.org/3/library/functions.html)
+- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [YouTube: FizzBuzz (Programming with Mosh)](https://www.youtube.com/watch?v=z3-XFI_nXNM)
