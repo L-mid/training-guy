@@ -249,5 +249,3 @@ def generate(*, repo_root: Path) -> Path:
             write_file(path, md)
 
     return docs_root
-
-

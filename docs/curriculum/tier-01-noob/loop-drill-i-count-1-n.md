@@ -60,7 +60,5 @@ else:
 
 ## Docs / Tutorials
 
-- [Python Tutorial](https://docs.python.org/3/tutorial/)
-- [Built-in Functions](https://docs.python.org/3/library/functions.html)
-- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [Built-in Python Functions](https://docs.python.org/3/library/functions.html)
 - [Wearn Python for loops in 5 minutes! 🔁](https://www.youtube.com/watch?v=KWgYha0clzw)

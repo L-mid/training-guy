@@ -82,7 +82,5 @@ for i in range(1, n + 1):
 
 ## Docs / Tutorials
 
-- [Python Tutorial](https://docs.python.org/3/tutorial/)
-- [Built-in Functions](https://docs.python.org/3/library/functions.html)
-- [YouTube Playlist: Tech With Tim – Python Programming Tutorials](https://www.youtube.com/playlist?list=PLzMcBGfZo4-mFu00qxl0a67RhjjZj3jXm)
+- [Built-in Python Functions](https://docs.python.org/3/library/functions.html)
 - [YouTube: FizzBuzz (Programming with Mosh)](https://www.youtube.com/watch?v=z3-XFI_nXNM)

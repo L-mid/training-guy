@@ -25,6 +25,9 @@ python -m pytest -q
 # build the site
 npm run build:ci
 
+# (optional) test site locally
+npm run start 
+
 # run all tests 
 npm test
 ```
@@ -39,7 +42,7 @@ python -m scripts.curriculum_gen
 
 ### Config files
 
-All curriculum content overrides are data-driven under `curriculum_config/`:
+All curriculum content overrides under `curriculum_config/`:
 
 - `curriculum_config/global.json`
   - `defaults`: applied to every curriculum page
@@ -52,11 +55,12 @@ Merge order:
 
 ### Managed sections
 
-The generator only rewrites these sections (if present), preserving any other manual content:
+Generator only rewrites these sections (if present) (other content is not touched):
 
 - `## Task`
 - `## Checklist`
 - `## Hints` (only if `hints_block.enabled: true`)
 - `## Docs / Tutorials`
+- `## Spoiler Code solutions`
 
-This lets you safely add custom explanation, examples, or extra sections without them being overwritten.
+

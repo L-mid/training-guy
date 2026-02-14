@@ -3,6 +3,13 @@
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 export default {
   curriculumSidebar: [
+    // Top-level "routes" (same importance as Curriculum)
+    'intro',
+    'neetcode',
+    'make-a-game',
+    'gambling',
+
+    // Curriculum
     'curriculum/index', // <-- this is your main tiers page
 
     {

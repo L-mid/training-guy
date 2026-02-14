@@ -59,23 +59,24 @@ const config = {
     // ...
     navbar: {
       items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'curriculumSidebar',
-          position: 'left',
-          label: 'Curriculum',
-        },
-        // (optional) remove the old Tutorial item if it’s still there
+        { to: '/', label: 'Choices', position: 'left' },
+        { to: '/curriculum/', label: 'Training 🦾', position: 'left' },
+        { to: '/neetcode/', label: 'Solving game', position: 'left' },
+        { to: '/make-a-game/', label: 'Make a game', position: 'left' },
+        { to: '/gambling/', label: 'gambling', position: 'left' },
+        { href: 'https://github.com/L-mid/training-guy', label: 'GitHub', position: 'right' },
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Curriculum',
+          title: 'Play',
           items: [
-            { label: 'Start (Day 1)', to: '/curriculum/tier-01-noob/print-something-hello-world/' },
-            { label: 'Tier 1 index', to: '/curriculum/tier-01-noob' },
+            { label: 'Training 🦾', to: '/curriculum/' },
+            { label: 'Solving game', to: '/neetcode/' },
+            { label: 'Make a game', to: '/make-a-game/' },
+            { label: 'gambling', to: '/gambling/' },
           ],
         },
         {
